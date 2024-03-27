@@ -75,7 +75,8 @@ public class WebRequest : MonoBehaviour
 
         if (request.result == UnityWebRequest.Result.Success)//요청이 성공했다면
         {
-            var texture = DownloadHandlerTexture.GetContent(request);//택스쳐 데이터 추출
+            Texture2D texture = DownloadHandlerTexture.GetContent(request);//택스쳐 데이터 추출
+            image.texture = texture;// 직접 받는것도 있고, 아니면 버퍼 그대로 사용한다. 인코딩 UTF-8로 줘야한다.
         }
         else
         {
