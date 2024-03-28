@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -6,16 +6,16 @@ using UnityEngine.UI;
 
 public class WebRequest : MonoBehaviour
 {
-    #region ÇÊ¿äÇÑ º¯¼ö
+    #region í•„ìš”í•œ ë³€ìˆ˜
 
     /// <summary>
-    /// url ÁÖ¼Ò
+    /// url ì£¼ì†Œ
     /// </summary>
     public string url;
 
     
     /// <summary>
-    /// Æ÷Æ® ¹øÈ£: ¼ıÀÚ¸¦ ¹ŞÁö¸¸ Ã³¸®´Â ¹®ÀÚ¿­ÀÌ±â ¶§¹®¿¡ stringÀ¸·Î ¼±¾ğ
+    /// í¬íŠ¸ ë²ˆí˜¸: ìˆ«ìë¥¼ ë°›ì§€ë§Œ ì²˜ë¦¬ëŠ” ë¬¸ìì—´ì´ê¸° ë•Œë¬¸ì— stringìœ¼ë¡œ ì„ ì–¸
     /// </summary>
     public string port;
 
@@ -25,11 +25,11 @@ public class WebRequest : MonoBehaviour
 
     private void Update()
     {
-        //Space Å°¸¦ ´©¸£¸é ¼­¹ö¿¡ ¿äÃ»ÇÏ´Â ¸Ş¼¼Áö Àü´Ş
+        //Space í‚¤ë¥¼ ëˆ„ë¥´ë©´ ì„œë²„ì— ìš”ì²­í•˜ëŠ” ë©”ì„¸ì§€ ì „ë‹¬
         if (Input.GetKeyDown(KeyCode.Space)== true)//
         {
-            // Todo : (¿Ï)¼­¹ö¿¡ ¿äÃ»À» Àü´ŞÇÏ´Â ÇÔ¼ö¸¦ ÀÛ¼ºÇÏ¿© ¿©±â¿¡ È£ÃâÇØ¾ß ÇÔ
-            //¿äÃ» ÇÔ¼ö È£Ãâ
+            // Todo : (ì™„)ì„œë²„ì— ìš”ì²­ì„ ì „ë‹¬í•˜ëŠ” í•¨ìˆ˜ë¥¼ ì‘ì„±í•˜ì—¬ ì—¬ê¸°ì— í˜¸ì¶œí•´ì•¼ í•¨
+            //ìš”ì²­ í•¨ìˆ˜ í˜¸ì¶œ
             StartCoroutine(RequestServer(url, port));
         }
         if (Input.GetKeyDown(KeyCode.T) == true)
@@ -39,48 +39,48 @@ public class WebRequest : MonoBehaviour
     }
 
     /// <summary>
-    /// ¼­¹ö¿¡ ¿äÃ»ÇÏ´Â ÇÔ¼ö
+    /// ì„œë²„ì— ìš”ì²­í•˜ëŠ” í•¨ìˆ˜
     /// </summary>
-    /// <param name="url">ÁÖ¼Ò</param>
-    /// <param name="port">Æ÷Æ®¹øÈ£</param>
+    /// <param name="url">ì£¼ì†Œ</param>
+    /// <param name="port">í¬íŠ¸ë²ˆí˜¸</param>
     /// <returns></returns>
     IEnumerator RequestServer(string url, string port)
     {
-        //ÄÚ·çÆ¾À» ÀÌ¿ë, 
-        //ºñµ¿±â(node ¹æ½Ä): ´äº¯ÀÌ ¿À±â±îÁö ¹«ÇÑ ´ë±â<-> ´Ù¸¥ ÀÏ ÇÏ´Ù°¡ ´äº¯ÀÌ ¿À¸é ½ÇÇà
+        //ì½”ë£¨í‹´ì„ ì´ìš©, 
+        //ë¹„ë™ê¸°(node ë°©ì‹): ë‹µë³€ì´ ì˜¤ê¸°ê¹Œì§€ ë¬´í•œ ëŒ€ê¸°<-> ë‹¤ë¥¸ ì¼ í•˜ë‹¤ê°€ ë‹µë³€ì´ ì˜¤ë©´ ì‹¤í–‰
 
-        //¼­¹ö¿¡ ¿äÃ»ÇÏ´Â °´Ã¼ »ı¼º
-        UnityWebRequest request = UnityWebRequest.Get($"{url}:{port}"); //Get ¿£ÅÍ //¾ÕÀ¸·Î ÇØ¾ßÇÏ´Â ¹æ½Ä Post: ½Ç½À¼­¹ö´Â Get°¡´ÉÇÔ.
-        yield return request.SendWebRequest();//¼­¹ö·ÎºÎÅÍ ÀÀ´äÀÌ ¿À±â Àü±îÁö ´ë±â(´ë±âÁßÀÌ¸é , ÇÔ¼ö Å»Ãâ)->ÀÀ´ä¿À¸é (ÁøÇà)
+        //ì„œë²„ì— ìš”ì²­í•˜ëŠ” ê°ì²´ ìƒì„±
+        UnityWebRequest request = UnityWebRequest.Get($"{url}:{port}"); //Get ì—”í„° //ì•ìœ¼ë¡œ í•´ì•¼í•˜ëŠ” ë°©ì‹ Post: ì‹¤ìŠµì„œë²„ëŠ” Getê°€ëŠ¥í•¨.
+        yield return request.SendWebRequest();//ì„œë²„ë¡œë¶€í„° ì‘ë‹µì´ ì˜¤ê¸° ì „ê¹Œì§€ ëŒ€ê¸°(ëŒ€ê¸°ì¤‘ì´ë©´ , í•¨ìˆ˜ íƒˆì¶œ)->ì‘ë‹µì˜¤ë©´ (ì§„í–‰)
 
-        //´Ù¸¥ Ã³¸®
-        if (request.result == UnityWebRequest.Result.Success)//Åë½Å¿¡ ¹®Á¦°¡ ¾ø´Â °æ¿ì
+        //ë‹¤ë¥¸ ì²˜ë¦¬
+        if (request.result == UnityWebRequest.Result.Success)//í†µì‹ ì— ë¬¸ì œê°€ ì—†ëŠ” ê²½ìš°
         {
-            //ÀÏ´Ü ·Î±× Âï±â
+            //ì¼ë‹¨ ë¡œê·¸ ì°ê¸°
             Debug.Log(request.downloadHandler.text);
-            //Á¦ÀÌ½¼ -> ¿ªÁ÷·ÄÈ­
-            //¹öÆÛ -> ¹ÙÀÌ³Ê¸®
+            //ì œì´ìŠ¨ -> ì—­ì§ë ¬í™”
+            //ë²„í¼ -> ë°”ì´ë„ˆë¦¬
 
-            //isbn ¾Ë¾Æµµ µÇ´Â ÄÚµå 
-            //id pw.. ¾Ë¸é ¾ÈµÇ´Â ÄÚµå
+            //isbn ì•Œì•„ë„ ë˜ëŠ” ì½”ë“œ 
+            //id pw.. ì•Œë©´ ì•ˆë˜ëŠ” ì½”ë“œ
         }
     }
 
     IEnumerator RequestTexture(string url, string port)
     {
-        //ÀÌ¹ÌÁö ¿äÃ»ÇÏ´Â °´Ã¼ »ı¼º
+        //ì´ë¯¸ì§€ ìš”ì²­í•˜ëŠ” ê°ì²´ ìƒì„±
         UnityWebRequest request = UnityWebRequestTexture.GetTexture($"{url}:{port}/favicon.ico");
-        //¿äÃ» ÈÄ ´ë±â
+        //ìš”ì²­ í›„ ëŒ€ê¸°
         yield return request.SendWebRequest();
 
-        if (request.result == UnityWebRequest.Result.Success)//¿äÃ»ÀÌ ¼º°øÇß´Ù¸é
+        if (request.result == UnityWebRequest.Result.Success)//ìš”ì²­ì´ ì„±ê³µí–ˆë‹¤ë©´
         {
-            Texture2D texture = DownloadHandlerTexture.GetContent(request);//ÅÃ½ºÃÄ µ¥ÀÌÅÍ ÃßÃâ
-            image.texture = texture;// Á÷Á¢ ¹Ş´Â°Íµµ ÀÖ°í, ¾Æ´Ï¸é ¹öÆÛ ±×´ë·Î »ç¿ëÇÑ´Ù. ÀÎÄÚµù UTF-8·Î Áà¾ßÇÑ´Ù.
+            Texture2D texture = DownloadHandlerTexture.GetContent(request);//íƒìŠ¤ì³ ë°ì´í„° ì¶”ì¶œ
+            image.texture = texture;// ì§ì ‘ ë°›ëŠ”ê²ƒë„ ìˆê³ , ì•„ë‹ˆë©´ ë²„í¼ ê·¸ëŒ€ë¡œ ì‚¬ìš©í•œë‹¤. ì¸ì½”ë”© UTF-8ë¡œ ì¤˜ì•¼í•œë‹¤.
         }
         else
         {
-            Debug.Log("ÅÃ½ºÃÄ ¿À·ù");
+            Debug.Log("íƒìŠ¤ì³ ì˜¤ë¥˜");
         }
     }
 
